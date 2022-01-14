@@ -25,5 +25,3 @@ print(tmp[0])
 for i in range(K, N):
     heapq.heappushpop(tmp, P[i])
     print(tmp[0])
-
-a = 10
