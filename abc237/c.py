@@ -16,19 +16,15 @@ import copy
 
 S = input()
 
+for l in range(len(S)):
+    if S[l] != "a":
+        break
+for r in range(len(S) - 1, -1, -1):
+    if S[r] != "a":
+        break
 
-if S == S[::-1]:
+St = S[l : r + 1]
+if l <= len(S) - 1 - r and St == St[::-1]:
     print("Yes")
 else:
-    for l in range(len(S)):
-        if S[l] != "a":
-            break
-
-    for r in range(len(S) - 1, -1, -1):
-        if S[r] != "a":
-            break
-    St = S[l : r + 1]
-    if l <= len(S) - 1 - r and St == St[::-1]:
-        print("Yes")
-    else:
-        print("No")
+    print("No")
