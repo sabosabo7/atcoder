@@ -1,0 +1,26 @@
+from sys import exit, stdin, setrecursionlimit
+
+setrecursionlimit(10 ** 9)
+MOD = 998244353
+INF = float()
+import copy
+
+# input = stdin.readline
+
+# from collections import deque, Counter
+# import heapq
+# from bisect import bisect_left
+# import numpy as np
+from math import gcd
+
+# from itertools import permutations, combinations, product
+
+
+A, B = map(int, input().split())
+
+ans = A * B // gcd(A, B)
+N = 10 ** 18
+if ans > N:
+    print("Large")
+else:
+    print(ans)
