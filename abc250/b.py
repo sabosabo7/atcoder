@@ -7,8 +7,7 @@ import copy
 
 # input = stdin.readline
 
-from collections import deque, Counter, defaultdict
-
+# from collections import deque, Counter, defaultdict
 # import heapq
 # from bisect import bisect_left
 # import numpy as np
@@ -23,15 +22,19 @@ def mklist(*size, a0=0) -> list:
         return [mklist(*size[1:], a0=a0) for _ in range(size[0])]
 
 
-N = int(input())
-A = list(map(int, input().split()))
+N, A, B = map(int, input().split())
 
-cnt = Counter(A)
 
-ans = 0
-M = max(A)
-
-for k in cnt.keys():
-    for j in range(1, M // k + 1):
-        ans += cnt[k] * cnt[j] * cnt[k * j]
-print(ans)
+for i in range(N):
+    if i % 2 == 0:
+        a = 0
+    else:
+        a = 1
+    tmp = ""
+    for j in range(N):
+        if (j + a) % 2 == 0:
+            tmp += "." * B
+        else:
+            tmp += "#" * B
+    for i in range(A):
+        print(tmp)

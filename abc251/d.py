@@ -23,15 +23,14 @@ def mklist(*size, a0=0) -> list:
         return [mklist(*size[1:], a0=a0) for _ in range(size[0])]
 
 
-N = int(input())
-A = list(map(int, input().split()))
+W = int(input())
 
-cnt = Counter(A)
+ans = []
 
-ans = 0
-M = max(A)
+for j in range(3):
+    for i in range(1, 101):
+        ans.append(i * 10 ** (j * 2))
 
-for k in cnt.keys():
-    for j in range(1, M // k + 1):
-        ans += cnt[k] * cnt[j] * cnt[k * j]
-print(ans)
+
+print(len(ans))
+print(*ans)
