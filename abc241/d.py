@@ -80,12 +80,15 @@ class BST:
     def __init__(self, n=10 ** 6):
         self.n = n
         self.bit = BIT(self.n)
+        self.cnt = 0
 
     def insert(self, x):
         self.bit.add(x - 1, 1)
+        self.cnt += 1
 
     def erase(self, x):
         self.bit.add(x - 1, -1)
+        self.cnt -= 1
 
     def count(self, x):
         return self.bit.sum(x - 1, x - 1)
@@ -107,6 +110,9 @@ class BST:
         return: x-th min
         """
         return self.bit.lower_bound(x) + 1
+
+    def max(self, x=1):
+        return self.min(self.cnt - x + 1)
 
 
 Q = int(input())
